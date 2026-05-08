@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SASSA Grant Eligibility Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>SASSA SRD R370 Eligibility Calculator</h1>
+
+    <label>Age</label>
+    <input type="number" id="age">
+
+    <label>Are you employed?</label>
+    <select id="employed">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+    </select>
+
+    <label>Monthly Income (R)</label>
+    <input type="number" id="income">
+
+    <label>Are you receiving another grant?</label>
+    <select id="grant">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+    </select>
+
+    <button onclick="checkEligibility()">Check Eligibility</button>
+
+    <div id="result"></div>
+
+    <footer>
+        <p>
+            Powered by
+            <a href="https://sassasrdstatuscheckdates.co.za/" target="_blank">
+                SASSA SRD Status Check
+            </a>
+        </p>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
