@@ -1,15 +1,11 @@
-# SASSA SRD Grant Eligibility Calculator
+# SASSA Grant Calculator
 
-A free eligibility checker for the SASSA SRD R370 grant.
+A free online SASSA Grant Eligibility Calculator for South African beneficiaries.
 
 ## Features
-- SRD qualification checker
-- Income validation
-- Employment check
-- Grant status guidance
+- Eligibility checking
+- Grant estimation
+- SRD R370 guidance
+- Mobile-friendly calculator
 
-## Website
-https://sassasrdstatuscheckdates.co.za/
-
-## Live Demo
-Add your Netlify/Vercel link here
+Website: https://sassasrdstatuscheckdates.co.za/
