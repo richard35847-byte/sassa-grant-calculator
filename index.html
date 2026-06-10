@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SASSA Grant Calculator – South African Social Grants Hub</title>
+  <meta name="description" content="Free SASSA Grant Eligibility Calculator for South African beneficiaries. Check eligibility, view payment dates, track your status, and understand the appeals process." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:   #006B3F; /* SASSA / South African government green */
+      --gold:    #FFB81C; /* SA flag gold */
+      --black:   #111211;
+      --white:   #FFFFFF;
+      --surface: #F5F7F5;
+      --border:  #D6DDD6;
+      --muted:   #5A6B5A;
+      --card-hover: #EBF2EB;
+
+      --font-ui:   'IBM Plex Sans', system-ui, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--surface);
+      color: var(--black);
+      min-height: 100vh;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--green);
+      color: var(--white);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .topbar-flag {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+    .flag-stripe {
+      width: 6px;
+      height: 14px;
+      border-radius: 1px;
+    }
+    .flag-stripe.black  { background: #000; }
+    .flag-stripe.gold   { background: var(--gold); }
+    .flag-stripe.green  { background: #007A4D; }
+    .flag-stripe.white  { background: #FFF; border: 1px solid #ccc; }
+    .flag-stripe.red    { background: #DE3831; }
+    .flag-stripe.blue   { background: #002395; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green);
+      color: var(--white);
+      padding: 2.4rem 1.5rem 2rem;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+    }
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 0.6rem;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 5vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      max-width: 640px;
+      margin: 0 auto 0.75rem;
+    }
+    header h1 span {
+      color: var(--gold);
+    }
+    header p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── PRIMARY CARD (Calculator) ── */
+    .primary-card {
+      background: var(--white);
+      border: 2px solid var(--green);
+      border-radius: 10px;
+      padding: 2rem 2rem 1.75rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.18s, transform 0.18s;
+      position: relative;
+    }
+    .primary-card:hover {
+      box-shadow: 0 8px 28px rgba(0,107,63,0.15);
+      transform: translateY(-2px);
+    }
+    .primary-card .badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--gold);
+      color: var(--black);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+    }
+    .card-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .icon-green  { background: #E6F2EC; }
+    .icon-blue   { background: #E6EFF8; }
+    .icon-amber  { background: #FFF4DC; }
+    .icon-red    { background: #FDECEA; }
+
+    .card-body h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--green);
+    }
+    .card-body p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 0.6rem;
+    }
+    .card-cta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card-cta::after { content: '→'; }
+
+    /* ── GRID CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+    .card:hover {
+      border-color: var(--green);
+      background: var(--card-hover);
+      box-shadow: 0 4px 16px rgba(0,107,63,0.1);
+    }
+    .card h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card .card-cta {
+      margin-top: 0.25rem;
+    }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: #E6F2EC;
+      border-left: 3px solid var(--green);
+      border-radius: 0 6px 6px 0;
+      padding: 0.85rem 1.1rem;
+      font-size: 0.82rem;
+      color: #1A4A2E;
+      line-height: 1.55;
+    }
+    .info-strip strong { font-weight: 600; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.78rem;
+      line-height: 1.6;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 540px) {
+      .primary-card { flex-direction: column; }
+      header { padding: 2rem 1rem 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-flag">
+      <div class="flag-stripe black"></div>
+      <div class="flag-stripe gold"></div>
+      <div class="flag-stripe green"></div>
+      <div class="flag-stripe white"></div>
+      <div class="flag-stripe red"></div>
+      <div class="flag-stripe blue"></div>
+    </div>
+    South African Social Security Agency &nbsp;·&nbsp; Grant Services Portal
+  </div>
+
+  <header>
+    <p class="header-eyebrow">SASSA · Official Grant Resource</p>
+    <h1>SASSA <span>Grant</span> Calculator</h1>
+    <p>Check your eligibility, estimate your payment, track your status, and understand your rights — all in one place.</p>
+  </header>
+
+  <main>
+
+    <p class="section-label">Main Tool</p>
+
+    <a href="index.html" class="primary-card">
+      <div class="badge">Start Here</div>
+      <div class="card-icon icon-green">🧮</div>
+      <div class="card-body">
+        <h2>SASSA Grant Eligibility Calculator</h2>
+        <p>Answer a few questions to find out which SASSA grants you may qualify for — including the SRD R370 grant — and get an estimated payment amount based on your circumstances.</p>
+        <span class="card-cta">Open calculator</span>
+      </div>
+    </a>
+
+    <p class="section-label">All Pages</p>
+
+    <div class="cards-grid">
+
+      <a href="sassa-status-check.html" class="card">
+        <div class="card-icon icon-blue">🔍</div>
+        <h3>SASSA Status Check</h3>
+        <p>Track your grant application or SRD R370 payment status. Find out if your application is approved, pending, or declined.</p>
+        <span class="card-cta">Check my status</span>
+      </a>
+
+      <a href="sassa-payment-dates.html" class="card">
+        <div class="card-icon icon-amber">📅</div>
+        <h3>SASSA Payment Dates</h3>
+        <p>View the monthly payment schedule for all grant types including old age, disability, child support, and the SRD R370 grant.</p>
+        <span class="card-cta">View payment dates</span>
+      </a>
+
+      <a href="sassa-appeal-guide.html" class="card">
+        <div class="card-icon icon-red">📋</div>
+        <h3>SASSA Appeal Guide</h3>
+        <p>Was your grant application declined? This step-by-step guide explains how to lodge an appeal and what documents you need.</p>
+        <span class="card-cta">Start an appeal</span>
+      </a>
+
+    </div>
+
+    <div class="info-strip">
+      <strong>Need help?</strong> Visit the official SASSA website at <a href="https://www.sassa.gov.za" target="_blank" rel="noopener">sassa.gov.za</a> or call the toll-free helpline on <strong>0800 60 10 11</strong> (Mon–Fri, 08:00–16:00). This site is an independent calculator resource and is not affiliated with the South African government.
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 SASSA Grant Calculator &nbsp;·&nbsp; <a href="https://sassasrdstatuscheckdates.co.za/" target="_blank" rel="noopener">sassasrdstatuscheckdates.co.za</a> &nbsp;·&nbsp; Independent resource for South African beneficiaries</p>
+  </footer>
+
+</body>
+</html>
