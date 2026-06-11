@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://richard35847-byte.github.io/sassa-grant-calculator/sitemap.xml

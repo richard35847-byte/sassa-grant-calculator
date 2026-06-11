@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap — SASSA Grant Calculator</title>
+  <meta name="description" content="Complete sitemap for the SASSA Grant Calculator GitHub Pages site. All pages indexed with priorities and update frequencies.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://richard35847-byte.github.io/sassa-grant-calculator/sitemap.html">
+  <style>
+    :root {
+      --teal: #0B6E6E;
+      --teal-dark: #084f4f;
+      --teal-light: #e0f4f4;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e0e0e0;
+      --bg: #f7f9f9;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* NAV */
+    .topnav { background: var(--teal-dark); padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .topnav a { color: #cdeaea; text-decoration: none; font-size: .82rem; }
+    .topnav a.brand { font-weight: 700; font-size: 1rem; color: #fff; margin-right: 14px; }
+
+    /* HERO */
+    .hero { background: var(--teal); color: #fff; padding: 48px 24px 40px; text-align: center; }
+    .hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+    .hero p { opacity: .88; max-width: 560px; margin: 0 auto; }
+
+    /* CONTAINER */
+    .container { max-width: 980px; margin: 0 auto; padding: 40px 20px; }
+
+    /* STATS BAR */
+    .stats { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 36px; }
+    .stat { background: var(--white); border-radius: 10px; border: 1px solid var(--border); padding: 16px 22px; flex: 1; min-width: 140px; text-align: center; }
+    .stat .num { font-size: 2rem; font-weight: 800; color: var(--teal); line-height: 1; }
+    .stat .label { font-size: .78rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* SECTION HEADER */
+    .section-head { display: flex; align-items: center; gap: 12px; margin: 32px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--teal); }
+    .section-head h2 { font-size: 1.1rem; font-weight: 700; color: var(--teal); }
+    .section-head .badge { background: var(--teal); color: #fff; font-size: .7rem; padding: 2px 9px; border-radius: 12px; font-weight: 600; }
+
+    /* PAGE CARDS GRID */
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+    .card { background: var(--white); border-radius: 10px; border: 1px solid var(--border); padding: 18px; position: relative; overflow: hidden; transition: box-shadow .15s; }
+    .card:hover { box-shadow: 0 4px 18px rgba(11,110,110,.12); }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--teal); }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .card h3 { font-size: .95rem; font-weight: 700; color: var(--text); flex: 1; }
+    .priority { font-size: .68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; margin-left: 8px; margin-top: 1px; }
+    .p10 { background: #e8f5e9; color: #2e7d32; }
+    .p09 { background: #e0f4f4; color: var(--teal); }
+    .p08 { background: #fff8e1; color: #f57f17; }
+    .p07 { background: #fce4ec; color: #c62828; }
+    .card-url { font-size: .75rem; color: var(--muted); word-break: break-all; margin-bottom: 10px; }
+    .card-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .meta-tag { font-size: .7rem; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; color: var(--muted); }
+    .card a { position: absolute; inset: 0; z-index: 1; }
+
+    /* XML PREVIEW */
+    .xml-block { background: #1e1e1e; color: #d4d4d4; border-radius: 10px; padding: 24px; overflow-x: auto; font-size: .78rem; font-family: 'Courier New', monospace; margin-top: 12px; line-height: 1.6; }
+    .xml-block .tag { color: #569cd6; }
+    .xml-block .val { color: #ce9178; }
+    .xml-block .attr { color: #9cdcfe; }
+    .xml-block .comment { color: #6a9955; }
+    details.xml-drop summary { cursor: pointer; font-weight: 700; color: var(--teal); font-size: .9rem; padding: 12px 0; }
+    details.xml-drop { border-top: 1px solid var(--border); margin-top: 32px; padding-top: 4px; }
+
+    /* COPY BUTTON */
+    .copy-btn { background: var(--teal); color: #fff; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: .82rem; font-weight: 600; margin-top: 12px; }
+    .copy-btn:hover { background: var(--teal-dark); }
+
+    /* INSTRUCTIONS */
+    .instructions { background: var(--white); border-radius: 12px; border: 1px solid var(--border); padding: 24px; margin-top: 32px; }
+    .instructions h2 { font-size: 1.1rem; color: var(--teal); margin-bottom: 14px; }
+    .step-row { display: flex; gap: 14px; margin-bottom: 12px; align-items: flex-start; }
+    .step-num { background: var(--teal); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .8rem; flex-shrink: 0; margin-top: 2px; }
+    .step-row p { font-size: .9rem; color: var(--muted); }
+    .step-row p strong { color: var(--text); }
+    code { background: var(--bg); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; font-size: .82rem; }
+
+    footer { background: var(--teal-dark); color: #cdeaea; padding: 30px 20px; margin-top: 48px; font-size: .84rem; }
+    .footer-inner { max-width: 980px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+    footer a { color: #8ce8e8; }
+    .footer-bottom { max-width: 980px; margin: 20px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.15); text-align: center; font-size: .78rem; opacity: .7; }
+    .footer-bottom a { color: #fff; }
+  </style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="index.html" class="brand">🏠 SASSA Hub</a>
+  <a href="sassa-status-check.html">Status Check</a>
+  <a href="sassa-payment-dates.html">Payment Dates</a>
+  <a href="sassa-appeal-guide.html">Appeal</a>
+  <a href="sassa-grants.html">All Grants</a>
+  <a href="sassa-account.html">Account Help</a>
+  <a href="sassa-contact.html">Contact</a>
+  <a href="sassa-faq.html">FAQ</a>
+</div>
+
+<div class="hero">
+  <h1>🗺️ Site Map</h1>
+  <p>All pages on the SASSA Grant Calculator GitHub Pages site — with priorities, update frequencies, and direct links.</p>
+</div>
+
+<div class="container">
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="num">16</div><div class="label">Total Pages</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Priority 1.0</div></div>
+    <div class="stat"><div class="num">6</div><div class="label">Priority 0.9</div></div>
+    <div class="stat"><div class="num">5</div><div class="label">Priority 0.8</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">Updated Weekly</div></div>
+  </div>
+
+  <!-- SECTION: HOME & TOOLS -->
+  <div class="section-head">
+    <span>🏠</span>
+    <h2>Home & Tools</h2>
+    <span class="badge">2 pages</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/"></a>
+      <div class="card-top">
+        <h3>Home — SASSA Grant Calculator</h3>
+        <span class="priority p10">1.0</span>
+      </div>
+      <div class="card-url">richard35847-byte.github.io/sassa-grant-calculator/</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Weekly</span>
+        <span class="meta-tag">⭐ Highest Priority</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/calculator.html"></a>
+      <div class="card-top">
+        <h3>SASSA Eligibility Calculator</h3>
+        <span class="priority p09">0.9</span>
+      </div>
+      <div class="card-url">.../calculator.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">🧮 Interactive Tool</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: STATUS & PAYMENTS -->
+  <div class="section-head">
+    <span>🔍</span>
+    <h2>Status & Payments</h2>
+    <span class="badge">3 pages</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-status-check.html"></a>
+      <div class="card-top">
+        <h3>SASSA SRD Status Check</h3>
+        <span class="priority p09">0.9</span>
+      </div>
+      <div class="card-url">.../sassa-status-check.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Weekly</span>
+        <span class="meta-tag">🎯 High Traffic</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-status-meanings.html"></a>
+      <div class="card-top">
+        <h3>SASSA Status Meanings Explained</h3>
+        <span class="priority p08">0.8</span>
+      </div>
+      <div class="card-url">.../sassa-status-meanings.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">📋 Guide</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-payment-dates.html"></a>
+      <div class="card-top">
+        <h3>SASSA Payment Dates 2026</h3>
+        <span class="priority p09">0.9</span>
+      </div>
+      <div class="card-url">.../sassa-payment-dates.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">📅 Time-Sensitive</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: GRANTS -->
+  <div class="section-head">
+    <span>💰</span>
+    <h2>Grants</h2>
+    <span class="badge">2 pages</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-grants.html"></a>
+      <div class="card-top">
+        <h3>All SASSA Grants — Guide</h3>
+        <span class="priority p08">0.8</span>
+      </div>
+      <div class="card-url">.../sassa-grants.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">💰 All Grant Types</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-grant-amounts-2026.html"></a>
+      <div class="card-top">
+        <h3>SASSA Grant Amounts 2026</h3>
+        <span class="priority p08">0.8</span>
+      </div>
+      <div class="card-url">.../sassa-grant-amounts-2026.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">📊 Amounts Table</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: ACCOUNT & SUPPORT -->
+  <div class="section-head">
+    <span>⚙️</span>
+    <h2>Account & Support</h2>
+    <span class="badge">4 pages</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-appeal-guide.html"></a>
+      <div class="card-top">
+        <h3>SASSA SRD Appeal Guide</h3>
+        <span class="priority p08">0.8</span>
+      </div>
+      <div class="card-url">.../sassa-appeal-guide.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">⚖️ High Intent</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-account.html"></a>
+      <div class="card-top">
+        <h3>SASSA Account Help</h3>
+        <span class="priority p08">0.8</span>
+      </div>
+      <div class="card-url">.../sassa-account.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">🏦 Bank · Phone</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-identity-verification.html"></a>
+      <div class="card-top">
+        <h3>Identity Verification Failed — Fix Guide</h3>
+        <span class="priority p07">0.7</span>
+      </div>
+      <div class="card-url">.../sassa-identity-verification.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">🪪 ID Help</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-contact.html"></a>
+      <div class="card-top">
+        <h3>Contact SASSA — All Methods</h3>
+        <span class="priority p07">0.7</span>
+      </div>
+      <div class="card-url">.../sassa-contact.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">📞 Phone · WhatsApp</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: FAQ & NEWS -->
+  <div class="section-head">
+    <span>📰</span>
+    <h2>FAQ & News</h2>
+    <span class="badge">4 pages</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-faq.html"></a>
+      <div class="card-top">
+        <h3>SASSA SRD FAQ</h3>
+        <span class="priority p07">0.7</span>
+      </div>
+      <div class="card-url">.../sassa-faq.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">❓ 25 Questions</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/SASSA-Grants-FAQ-South-Africa.html"></a>
+      <div class="card-top">
+        <h3>SASSA Grants FAQ — South Africa</h3>
+        <span class="priority p07">0.7</span>
+      </div>
+      <div class="card-url">.../SASSA-Grants-FAQ-South-Africa.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">❓ FAQ Hub</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-news.html"></a>
+      <div class="card-top">
+        <h3>SASSA News 2026</h3>
+        <span class="priority p07">0.7</span>
+      </div>
+      <div class="card-url">.../sassa-news.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Weekly</span>
+        <span class="meta-tag">📰 Latest Updates</span>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:#0B6E6E;">
+      <a href="https://richard35847-byte.github.io/sassa-grant-calculator/sassa-complete-guide.html"></a>
+      <div class="card-top">
+        <h3>SASSA Complete Guide — 20 Questions Answered</h3>
+        <span class="priority p09">0.9</span>
+      </div>
+      <div class="card-url">.../sassa-complete-guide.html</div>
+      <div class="card-meta">
+        <span class="meta-tag">🔄 Monthly</span>
+        <span class="meta-tag">🎯 SEO Hub</span>
+        <span class="meta-tag">⭐ New</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PRIORITY LEGEND -->
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;margin-top:32px;">
+    <p style="font-size:.85rem;font-weight:700;margin-bottom:12px;color:var(--teal);">Priority Legend</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:.8rem;">
+      <span class="priority p10" style="padding:4px 12px;">1.0 = Homepage (most important)</span>
+      <span class="priority p09" style="padding:4px 12px;">0.9 = Core high-traffic pages</span>
+      <span class="priority p08" style="padding:4px 12px;">0.8 = Key guides</span>
+      <span class="priority p07" style="padding:4px 12px;">0.7 = Supporting pages</span>
+    </div>
+  </div>
+
+  <!-- XML SITEMAP INSTRUCTIONS -->
+  <div class="instructions">
+    <h2>📋 How to Submit Your Sitemap to Google</h2>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <p>Upload <code>sitemap.xml</code> to the root of your GitHub repository so it is accessible at:<br><strong>https://richard35847-byte.github.io/sassa-grant-calculator/sitemap.xml</strong></p>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <p>Go to <strong>Google Search Console</strong> at <a href="https://search.google.com/search-console" target="_blank" style="color:var(--teal);">search.google.com/search-console</a> and add your property: <code>https://richard35847-byte.github.io/sassa-grant-calculator/</code></p>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <p>In the left menu, click <strong>Sitemaps</strong> → paste <code>sitemap.xml</code> in the field → click <strong>Submit</strong>.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <p>Google will crawl and index your pages, usually within a few days. Check back for indexing status and any errors.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <p>Also add this line to your <code>robots.txt</code> file in the repo root:<br><code>Sitemap: https://richard35847-byte.github.io/sassa-grant-calculator/sitemap.xml</code></p>
+    </div>
+  </div>
+
+  <!-- XML PREVIEW DROPDOWN -->
+  <details class="xml-drop">
+    <summary>📄 View raw sitemap.xml source</summary>
+    <div class="xml-block" id="xml-content">
+<span class="comment">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;urlset</span> <span class="attr">xmlns</span>=<span class="val">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="tag">&gt;</span>
+
+  <span class="comment">&lt;!-- HOME --&gt;</span>
+  <span class="tag">&lt;url&gt;</span>
+    <span class="tag">&lt;loc&gt;</span><span class="val">https://richard35847-byte.github.io/sassa-grant-calculator/</span><span class="tag">&lt;/loc&gt;</span>
+    <span class="tag">&lt;lastmod&gt;</span>2026-06-11<span class="tag">&lt;/lastmod&gt;</span>
+    <span class="tag">&lt;changefreq&gt;</span>weekly<span class="tag">&lt;/changefreq&gt;</span>
+    <span class="tag">&lt;priority&gt;</span>1.0<span class="tag">&lt;/priority&gt;</span>
+  <span class="tag">&lt;/url&gt;</span>
+
+  <span class="comment">&lt;!-- ... 15 more URLs — see sitemap.xml file --&gt;</span>
+
+<span class="tag">&lt;/urlset&gt;</span>
+    </div>
+    <button class="copy-btn" onclick="
+      const txt = `https://richard35847-byte.github.io/sassa-grant-calculator/\nhttps://richard35847-byte.github.io/sassa-grant-calculator/index.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/calculator.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-status-check.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-status-meanings.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-payment-dates.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-grants.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-grant-amounts-2026.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-appeal-guide.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-account.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-identity-verification.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-contact.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-faq.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/SASSA-Grants-FAQ-South-Africa.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-news.html\nhttps://richard35847-byte.github.io/sassa-grant-calculator/sassa-complete-guide.html`;
+      navigator.clipboard.writeText(txt).then(() => { this.textContent = '✅ Copied!'; setTimeout(() => this.textContent = 'Copy All URLs', 2000); });
+    ">Copy All URLs</button>
+  </details>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:#fff;display:block;margin-bottom:8px;">Quick Links</strong>
+      <a href="index.html">Home</a>
+      <a href="sassa-status-check.html">Status Check</a>
+      <a href="sassa-payment-dates.html">Payment Dates</a>
+      <a href="sassa-grants.html">All Grants</a>
+    </div>
+    <div>
+      <strong style="color:#fff;display:block;margin-bottom:8px;">Main Website</strong>
+      <a href="https://sassasrdstatuscheckdates.co.za/" target="_blank" rel="dofollow" style="color:#fff;font-weight:700;">sassasrdstatuscheckdates.co.za</a>
+      <p style="margin-top:6px;font-size:.8rem;opacity:.7;">Full guides, live payment dates, and SASSA news.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Not affiliated with SASSA. Official portal: <a href="https://srd.sassa.gov.za" target="_blank">srd.sassa.gov.za</a> &nbsp;·&nbsp;
+    Main site: <a href="https://sassasrdstatuscheckdates.co.za/" target="_blank" rel="dofollow">sassasrdstatuscheckdates.co.za</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,11 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!-- ══ HOME ══ -->
   <url>
     <loc>https://richard35847-byte.github.io/sassa-grant-calculator/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/index.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ══ TOOLS ══ -->
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/calculator.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ══ STATUS & PAYMENTS ══ -->
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-status-check.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-status-meanings.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-payment-dates.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ══ GRANTS ══ -->
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-grants.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-grant-amounts-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ══ ACCOUNT & SUPPORT ══ -->
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-appeal-guide.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-account.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-identity-verification.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-contact.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ══ FAQ & NEWS ══ -->
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-faq.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/SASSA-Grants-FAQ-South-Africa.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-news.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ══ COMPLETE GUIDE HUB ══ -->
+  <url>
+    <loc>https://richard35847-byte.github.io/sassa-grant-calculator/sassa-complete-guide.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>
